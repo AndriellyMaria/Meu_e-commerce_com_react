@@ -4,14 +4,13 @@ import { getAuth, GoogleAuthProvider, OAuthProvider } from "firebase/auth";
 
 // 🔴 Cole aqui o firebaseConfig do seu projeto
 const firebaseConfig = {
-  apiKey: "AIzaSyBwz41c2X-RvuIhigM05KdhMXlNLMjJ4QY",
-  authDomain: "karen-site-9e8f0.firebaseapp.com",
-  projectId: "karen-site-9e8f0",
-  storageBucket: "karen-site-9e8f0.firebasestorage.app",
-  messagingSenderId: "199721152796",
-  appId: "1:199721152796:web:5160c136edb7fe4a500ad9"
+  apiKey: "AIzaSyDzf4Hob7gEal48SdyvEgfgQp7vNcVklx4",
+  authDomain: "e-commerce-58172.firebaseapp.com",
+  projectId: "e-commerce-58172",
+  storageBucket: "e-commerce-58172.firebasestorage.app",
+  messagingSenderId: "495334805834",
+  appId: "1:495334805834:web:e0539add2f10c32b2631b3"
 };
-
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
