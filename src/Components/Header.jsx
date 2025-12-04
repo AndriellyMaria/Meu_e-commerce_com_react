@@ -6,8 +6,8 @@ const Header = () => {
 
   return (
     <header className="header">
-      <h1>Prof Karen Carvalho</h1>
-      <p>Experiências de aprendizagem & desenvolvimento web</p>
+      <h1>Artes a Nato</h1>
+      <p>Construindo com as próprias mãos</p>
 
       <div style={{ marginLeft: "auto" }}>
         {user ? (

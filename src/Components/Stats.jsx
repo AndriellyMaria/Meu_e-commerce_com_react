@@ -1,7 +1,7 @@
 const stats = [
-  { label: 'Projetos entregues', value: '+50' },
-  { label: 'Clientes satisfeitos', value: '+20' },
-  { label: 'Anos de experiência', value: '+5' },
+  { label: 'Projetos entregues', value: 'Os resultados ainda não estão disponíveis' },
+  { label: 'Clientes satisfeitos', value: 'Os resultados ainda não estão disponíveis' },
+  { label: 'Anos de experiência', value: 'Os resultados ainda não estão disponíveis' },
 ];
 
 function Stats() {
