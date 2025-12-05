@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px;
+  
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 120px; /* mais espaço quando a navbar quebra em 2 linhas */
+  }
 }
 
 code {

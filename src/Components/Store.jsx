@@ -39,7 +39,7 @@ export default function Store() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       name: "Chaveiros fofos para presente (crochê)",
       price: 5.00,
       images: [
@@ -49,6 +49,69 @@ export default function Store() {
         "https://i.pinimg.com/1200x/93/b0/b2/93b0b2ec1f410b26084308aad44df6cc.jpg",
         "https://i.pinimg.com/736x/ff/34/39/ff34396a30b0c3ea1db5eb87f2565d46.jpg",
         "https://i.pinimg.com/736x/c1/97/0d/c1970dad4edf72496675546fa4a2e48d.jpg"
+      ]
+    },
+    {
+      id: 5,
+      name: "Vestidos de crochê",
+      price: 89.90,
+      images: [
+        "https://i.pinimg.com/736x/99/b1/ac/99b1ac6b8dd92ee0a37ee6fc15a7fe6c.jpg",
+        "https://i.pinimg.com/736x/5b/ff/85/5bff851d07953997800dd366dff7bb1a.jpg",
+        "https://i.pinimg.com/736x/33/76/e6/3376e6b3e6af45af34be063f3417eba4.jpg",
+        "https://i.pinimg.com/736x/84/ac/07/84ac0755a9fd4eebe760be1f9af4df52.jpg",
+        "https://i.pinimg.com/1200x/86/f8/83/86f883b6bfac63cbd651f85e62dda95b.jpg",
+        "https://i.pinimg.com/736x/ae/e7/11/aee711ee98fa394d3590330dabcbe292.jpg"
+      ]
+    },
+    {
+      id: 6,
+      name: "Mesa de madeira",
+      price: 369.90,
+      images: [
+        "https://i.pinimg.com/736x/a2/1e/f2/a21ef25d95b9296c76da5258e339e910.jpg",
+        "https://i.pinimg.com/1200x/ab/8a/49/ab8a493e45be191a80f6c52f843f2f00.jpg"
+      ]
+    },
+    {
+      id: 7,
+      name: "Estante de madeira com gavetas",
+      price: 359.90,
+      images: [
+        "https://i.pinimg.com/736x/20/54/ff/2054ffe2f11994c1e8a694b79d3cd6a7.jpg",
+        "https://i.pinimg.com/1200x/df/e0/e0/dfe0e037c899e923698a464343669401.jpg",
+        "https://i.pinimg.com/736x/eb/60/7c/eb607c50ee001f24c2c915bbfda22cf7.jpg",
+        "https://i.pinimg.com/1200x/99/15/cc/9915cc944371f5156163267fe9303271.jpg",
+        "https://i.pinimg.com/1200x/53/61/6f/53616f9787b87ddfad76e6756f8f7ef4.jpg"
+      ]
+    },
+    {
+      id: 8,
+      name: "Mesinha de cabeceira",
+      price: 299.90,
+      images: [
+        "https://i.pinimg.com/736x/8e/5a/6d/8e5a6d576adf716ecc438a76ff4c4e2c.jpg",
+        "https://i.pinimg.com/1200x/e1/30/07/e130079289b405c232e805d93c542fb4.jpg",
+        "https://i.pinimg.com/736x/83/1a/3c/831a3c64b53c50fc4396051cbf0146fe.jpg",
+        "https://i.pinimg.com/736x/9d/24/75/9d24751fbc9b8a2604ad11ee03c2adb6.jpg",
+        "https://i.pinimg.com/736x/e9/08/2a/e9082a40e0f69fdb01544a367d4dadcb.jpg",
+        "https://i.pinimg.com/736x/0b/bb/47/0bbb4704a348fa658b5e4de4c4625b44.jpg"
+      ]
+    },
+    {
+      id: 9,
+      name: "Mochilas bordadas a mão",
+      price: 100.00,
+      images: [
+        "https://i.pinimg.com/1200x/4e/fe/77/4efe770b9e8cca8ad960ce97be7d6fde.jpg",
+        "https://i.pinimg.com/736x/cf/86/41/cf86412a9d023b8f522e018e79563a65.jpg",
+        "https://i.pinimg.com/736x/15/d7/3f/15d73f981fbd5b4a304dc3c890fdaa5e.jpg",
+        "https://i.pinimg.com/1200x/1e/7b/ae/1e7bae735927f54593a0c96565f9946c.jpg",
+        "https://i.pinimg.com/736x/91/ce/ef/91ceef3893f976f750973cab1cbb2bbb.jpg",
+        "https://i.pinimg.com/1200x/a4/65/f8/a465f84f67b2a1e31b80e1ea63cfd2f2.jpg",
+        "https://i.pinimg.com/736x/63/56/1b/63561b2a91b250a58850fbff436327cc.jpg",
+        "https://i.pinimg.com/736x/2c/7e/de/2c7ede686ce038667d9289a944de30be.jpg",
+        "https://i.pinimg.com/1200x/1b/53/b4/1b53b4f4f11ac46b516becd7e8a58b0c.jpg"
       ]
     }
   ]);
@@ -71,16 +134,17 @@ export default function Store() {
 
             {/* Carrossel */}
             <Carousel fade interval={2500}>
-              {product.images.map((img, index) => (
-                <Carousel.Item key={index}>
-                  <img
-                    src={img}
-                    alt={product.name}
-                    style={styles.image}
-                  />
-                </Carousel.Item>
-              ))}
-            </Carousel>
+  {product.images.map((img, index) => (
+    <Carousel.Item key={index} style={styles.carouselItem}>
+      <img
+        src={img}
+        alt={product.name}
+        style={styles.image}
+      />
+    </Carousel.Item>
+  ))}
+</Carousel>
+
 
             <h3>{product.name}</h3>
             <p style={styles.price}>R$ {product.price.toFixed(2)}</p>
@@ -131,9 +195,16 @@ const styles = {
   },
   image: {
     width: "100%",
+    height: "260px",      // altura fixa
+    objectFit: "cover",    // evita deformar
     borderRadius: "10px",
     marginBottom: "15px",
   },
+  
+  carouselItem: {
+    height: "260px",
+  },
+  
   price: {
     fontSize: "18px",
     fontWeight: "bold",

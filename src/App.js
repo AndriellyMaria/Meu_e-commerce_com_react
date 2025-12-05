@@ -10,23 +10,35 @@ import Stats from './Components/Stats';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import Store from "./Components/Store";
+import TopBar from "./Components/TopBar";
 
 function App() {
   return (
     <div className="App">
+      <TopBar />
       <Header />
       <Navigation />
-      <Hero />
-      <About />
-      <Services />
-      <Stats />
-      <Contact />
-      <Footer />
 
+      {/* ROTAS */}
       <Routes>
-  <Route path="/" element={<Hero />} />
-  <Route path="/store" element={<Store />} />
-</Routes>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <Hero />
+              <About />
+              <Services />
+              <Stats />
+              <Contact />
+              <Footer />
+            </>
+          } 
+        />
+
+        <Route path="/store" element={<Store />} />
+
+        <Route path="/cart" element={<div>Carrinho vazio por enquanto!</div>} />
+      </Routes>
     </div>
   );
 }
