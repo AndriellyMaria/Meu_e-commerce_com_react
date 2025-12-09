@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 export default function Store() {
+  const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
+
   const [products] = useState([
+    // --- SEUS PRODUTOS AQUI (mantenha igual) ---
     {
       id: 1,
       name: "Anéis fofos (biscuit) sortidos unid:",
@@ -114,14 +120,24 @@ export default function Store() {
         "https://i.pinimg.com/1200x/1b/53/b4/1b53b4f4f11ac46b516becd7e8a58b0c.jpg"
       ]
     }
+    // ... continue com todos os seus produtos
   ]);
 
+  // Comprar Agora ➜ Checkout
   const handleBuyNow = (product) => {
-    alert(`Compra iniciada: ${product.name}`);
+    addToCart(product);
+    navigate("/checkout");
   };
 
+  // Adicionar ao carrinho
   const handleAddToCart = (product) => {
-    alert(`${product.name} foi adicionado ao carrinho!`);
+    addToCart(product);
+    navigate("/carrinho");
+  };
+
+  // Ir para detalhes
+  const handleDetails = (product) => {
+    navigate(`/produto/${product.id}`);
   };
 
   return (
@@ -131,36 +147,29 @@ export default function Store() {
       <div style={styles.grid}>
         {products.map((product) => (
           <div key={product.id} style={styles.card}>
-
+            
             {/* Carrossel */}
             <Carousel fade interval={2500}>
-  {product.images.map((img, index) => (
-    <Carousel.Item key={index} style={styles.carouselItem}>
-      <img
-        src={img}
-        alt={product.name}
-        style={styles.image}
-      />
-    </Carousel.Item>
-  ))}
-</Carousel>
-
+              {product.images.map((img, index) => (
+                <Carousel.Item key={index} style={styles.carouselItem}>
+                  <img src={img} alt={product.name} style={styles.image} />
+                </Carousel.Item>
+              ))}
+            </Carousel>
 
             <h3>{product.name}</h3>
             <p style={styles.price}>R$ {product.price.toFixed(2)}</p>
 
+            <button style={styles.details} onClick={() => handleDetails(product)}>
+              Ver detalhes
+            </button>
+
             <div style={styles.buttons}>
-              <button
-                style={styles.buyNow}
-                onClick={() => handleBuyNow(product)}
-              >
+              <button style={styles.buyNow} onClick={() => handleBuyNow(product)}>
                 Comprar Agora
               </button>
 
-              <button
-                style={styles.cart}
-                onClick={() => handleAddToCart(product)}
-              >
+              <button style={styles.cart} onClick={() => handleAddToCart(product)}>
                 Adicionar ao Carrinho
               </button>
             </div>
