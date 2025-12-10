@@ -1,9 +1,9 @@
 import BotaoVoltar from "../../Components/BotaoVoltar";
-function Notificacoes() {
+function Suporte() {
     return <div> 
       <BotaoVoltar />
-      <h1>Notificações</h1>
+      <h1>Suporte</h1>
       </div>;
   }
   
-  export default Notificacoes;
+  export default Suporte;

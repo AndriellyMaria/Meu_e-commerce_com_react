@@ -2,13 +2,13 @@ import { useState, useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import "./Store.css";
 
 export default function Store() {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
   const [products] = useState([
-    // --- SEUS PRODUTOS AQUI (mantenha igual) ---
     {
       id: 1,
       name: "Anéis fofos (biscuit) sortidos unid:",
@@ -120,7 +120,6 @@ export default function Store() {
         "https://i.pinimg.com/1200x/1b/53/b4/1b53b4f4f11ac46b516becd7e8a58b0c.jpg"
       ]
     }
-    // ... continue com todos os seus produtos
   ]);
 
   // Comprar Agora ➜ Checkout
@@ -141,103 +140,36 @@ export default function Store() {
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>Produtos Disponíveis</h2>
+    <div className="container">
+  <h2 className="title">Produtos Disponíveis</h2>
 
-      <div style={styles.grid}>
-        {products.map((product) => (
-          <div key={product.id} style={styles.card}>
-            
-            {/* Carrossel */}
-            <Carousel fade interval={2500}>
-              {product.images.map((img, index) => (
-                <Carousel.Item key={index} style={styles.carouselItem}>
-                  <img src={img} alt={product.name} style={styles.image} />
-                </Carousel.Item>
-              ))}
-            </Carousel>
+  <div className="grid">
+    {products.map((product) => (
+      <div key={product.id} className="card">
 
-            <h3>{product.name}</h3>
-            <p style={styles.price}>R$ {product.price.toFixed(2)}</p>
+        <Carousel fade interval={2500}>
+          {product.images.map((img, index) => (
+            <Carousel.Item key={index} className="carouselItem">
+              <img src={img} alt={product.name} className="image" />
+            </Carousel.Item>
+          ))}
+        </Carousel>
 
-            <button style={styles.details} onClick={() => handleDetails(product)}>
-              Ver detalhes
-            </button>
+        <h3>{product.name}</h3>
+        <p className="price">R$ {product.price.toFixed(2)}</p>
 
-            <div style={styles.buttons}>
-              <button style={styles.buyNow} onClick={() => handleBuyNow(product)}>
-                Comprar Agora
-              </button>
+        <div className="buttons">
+          <button className="buyNow" onClick={() => handleBuyNow(product)}>
+            Comprar Agora
+          </button>
 
-              <button style={styles.cart} onClick={() => handleAddToCart(product)}>
-                Adicionar ao Carrinho
-              </button>
-            </div>
-          </div>
-        ))}
+          <button className="cart" onClick={() => handleAddToCart(product)}>
+            Adicionar ao Carrinho
+          </button>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
   );
 }
-
-const styles = {
-  container: {
-    padding: "40px",
-    maxWidth: "1000px",
-    margin: "0 auto",
-  },
-  title: {
-    textAlign: "center",
-    marginBottom: "30px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "25px",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "10px",
-    padding: "15px",
-    textAlign: "center",
-    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-  },
-  image: {
-    width: "100%",
-    height: "260px",      // altura fixa
-    objectFit: "cover",    // evita deformar
-    borderRadius: "10px",
-    marginBottom: "15px",
-  },
-  
-  carouselItem: {
-    height: "260px",
-  },
-  
-  price: {
-    fontSize: "18px",
-    fontWeight: "bold",
-    marginBottom: "15px",
-  },
-  buttons: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
-  buyNow: {
-    padding: "10px",
-    background: "#6c63ff",
-    border: "none",
-    color: "white",
-    cursor: "pointer",
-    borderRadius: "5px",
-  },
-  cart: {
-    padding: "10px",
-    background: "#ff6b6b",
-    border: "none",
-    color: "white",
-    cursor: "pointer",
-    borderRadius: "5px",
-  },
-};

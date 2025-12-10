@@ -8,8 +8,7 @@ export default function ProductDetails() {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
-  // pega a lista de produtos do Store
-  const allProducts = Store().props.children.props.children; // evita duplicar lista
+  const allProducts = Store().props.children.props.children;
   const product = allProducts.find(p => p.id === Number(id));
 
   if (!product) return <h2>Produto não encontrado</h2>;

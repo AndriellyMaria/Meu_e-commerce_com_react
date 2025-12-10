@@ -1,28 +1,35 @@
-import { BsChatDotsFill, BsFillBellFill, BsFillPersonFill, BsExclamationCircleFill } from "react-icons/bs";
-import "./Navigation.css"; // caso você use um CSS externo
+import { NavLink } from "react-router-dom";
+import {
+  BsChatDotsFill,
+  BsFillBellFill,
+  BsFillPersonFill,
+  BsExclamationCircleFill
+} from "react-icons/bs";
+import "./Navigation.css";
+
 
 function Navigation() {
   return (
     <nav className="navigation">
-      <a href="#sobre" className="nav-item">
+      <NavLink to="/chat" className="nav-item">
         <BsChatDotsFill className="nav-icon" />
         Chat
-      </a>
+      </NavLink>
 
-      <a href="#serviços" className="nav-item">
+      <NavLink to="/notificacoes" className="nav-item">
         <BsFillBellFill className="nav-icon" />
         Notificações
-      </a>
+      </NavLink>
 
-      <a href="#resultados" className="nav-item">
+      <NavLink to="/perfil" className="nav-item">
         <BsFillPersonFill className="nav-icon" />
         Perfil
-      </a>
+      </NavLink>
 
-      <a href="#contato" className="nav-item">
+      <NavLink to="/suporte" className="nav-item">
         <BsExclamationCircleFill className="nav-icon" />
         Suporte
-      </a>
+      </NavLink>
     </nav>
   );
 }

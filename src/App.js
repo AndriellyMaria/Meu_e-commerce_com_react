@@ -11,6 +11,12 @@ import Stats from './Components/Stats';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 
+import Chat from "./Pages/Chat";
+import Perfil from "./Pages/Perfil";
+import Notificacoes from "./Pages/Notificacoes";
+import Suporte from "./Pages/Suporte";
+
+
 import Store from "./Components/Store";
 import ProductPage from "./Components/ProductPage";
 import CartPage from "./Components/CartPage";
@@ -28,10 +34,8 @@ function App() {
       <Navigation />
 
       <Routes>
-
-        {/* HOME */}
-        <Route 
-          path="/" 
+        <Route
+          path="/"
           element={
             <>
               <Hero />
@@ -41,22 +45,23 @@ function App() {
               <Contact />
               <Footer />
             </>
-          } 
+          }
         />
 
-        {/* LOJA */}
         <Route path="/store" element={<Store />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/notificacoes" element={<Notificacoes />} />
+        <Route path="/suporte" element={<Suporte />} />
 
-        {/* NOVAS ROTAS */}
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-pending" element={<OrderPending />} />
         <Route path="/order-tracking" element={<OrderTracking />} />
-
       </Routes>
+
     </div>
   );
 }
-
 export default App;
