@@ -1,8 +1,9 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, OAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { GoogleAuthProvider, OAuthProvider } from "firebase/auth";
 
-// 🔴 Cole aqui o firebaseConfig do seu projeto
 const firebaseConfig = {
   apiKey: "AIzaSyDzf4Hob7gEal48SdyvEgfgQp7vNcVklx4",
   authDomain: "e-commerce-58172.firebaseapp.com",
@@ -13,9 +14,9 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
-export const googleProvider = new GoogleAuthProvider();
-export const microsoftProvider = new OAuthProvider("microsoft.com");
+const db = getFirestore(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const microsoftProvider = new OAuthProvider('microsoft.com');
 
-// (Opcional) escopos extras para Microsoft, ex:
-// microsoftProvider.addScope("User.Read");
+export { db, auth, googleProvider, microsoftProvider };
